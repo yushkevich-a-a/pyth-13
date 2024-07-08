@@ -1,35 +1,27 @@
-# matrix1 = [
-#   [1,2,3,4],
-#   [5,6,7,8],
-#   [9,10,11,12],
-#   [13,14,15,16],
-#   ]
-# matrix2 = [
-#   [-13,14,15,16],
-#   [-9,10,11,12],
-#   [-5,6,7,8],
-#   [-1,2,3,4],
-# ]
+import random
 
-# matrix3 = []
+def printMatrix(mat: list):
+  for line in mat:
+    st = ""
+    for i in line:
+      if i >= 100:
+         st += f"{i} "
+      elif  10 <= i < 100:
+         st += f"{i}  "
+      else:
+         st += f"{i}   "
+    print(st)
+  print('_______________________________________')
 
-
-matrix1 = [ [3, 5, 1], [8, 7, 2] ]
-matrix2 = [ [5, 3, 4], [1, 10, 9] ]
-matrix3 = []
-
-
-print(type(matrix1))
-# for key, value in matrix1.iteritems() :
-#     print (key, value)
-  # newlist = []
-  # for j in matrix1[i].keys():
-  #   a = matrix1[i][j]
-  #   print(a)
+matrix1 = [[random.randint(0, 100) for i in range(10)] for i in range(10)]
+matrix2 = [[random.randint(0, 100) for i in range(10)] for i in range(10)]
+matrix3 = [[0 for i in range(10)] for i in range(10)]
 
 
+for i in range(len(matrix1)) :
+  for j in range(len(matrix1[i])):
+    matrix3[i][j] = matrix1[i][j] + matrix2[i][j]
 
-
-
-
-# print(matrix1 +matrix2)
+printMatrix(matrix1)
+printMatrix(matrix2)
+printMatrix(matrix3)
